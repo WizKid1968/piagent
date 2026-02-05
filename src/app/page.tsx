@@ -40,7 +40,8 @@ import {
   Search,
   PenTool,
   ShoppingCart,
-  Headphones
+  Headphones,
+  Heart
 } from "lucide-react";
 
 export default function LandingPage() {
@@ -663,6 +664,207 @@ export default function LandingPage() {
                 </ul>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Agent Persona Builder */}
+      <section className="py-24 bg-gradient-to-b from-slate-900/50 to-slate-950">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-fuchsia-500/10 border border-fuchsia-500/30 text-fuchsia-400 text-sm font-medium mb-4">
+              <Brain className="w-4 h-4" />
+              Exclusive to PiAgent Professional+
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-bold mb-4">Agent Persona Builder</h2>
+            <p className="text-slate-400 text-lg max-w-2xl mx-auto">
+              This isn't ChatGPT. This isn't a generic assistant. This is <span className="text-white font-semibold">YOUR agent</span> — 
+              with a personality, memory, and relationship built specifically for you.
+            </p>
+          </div>
+
+          {/* The Problem */}
+          <div className="grid lg:grid-cols-2 gap-12 items-center mb-20">
+            <div>
+              <h3 className="text-2xl font-bold mb-4">Generic AI Forgets. Your Agent Remembers.</h3>
+              <p className="text-slate-400 mb-6">
+                Every time you start a new ChatGPT session, you're training a stranger. 
+                Your PiAgent? It knows your quirks, your preferences, your voice — 
+                because we build its personality around YOU.
+              </p>
+              <div className="space-y-3">
+                {[
+                  { label: "ChatGPT", text: "Same personality for 100M+ users" },
+                  { label: "Your PiAgent", text: "Unique personality crafted for YOU" },
+                ].map((item, idx) => (
+                  <div key={idx} className={`p-4 rounded-xl border ${idx === 0 ? 'bg-slate-900 border-slate-800' : 'bg-fuchsia-500/10 border-fuchsia-500/30'}`}>
+                    <span className={`text-xs font-semibold uppercase tracking-wider ${idx === 0 ? 'text-slate-500' : 'text-fuchsia-400'}`}>{item.label}</span>
+                    <p className={`mt-1 ${idx === 0 ? 'text-slate-400' : 'text-white'}`}>{item.text}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="relative">
+              <div className="absolute -inset-4 bg-gradient-to-r from-fuchsia-500/20 to-cyan-500/20 rounded-3xl blur-xl" />
+              <div className="relative bg-slate-900 rounded-2xl border border-slate-800 p-6">
+                <div className="flex items-center gap-3 mb-4 pb-4 border-b border-slate-800">
+                  <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-fuchsia-500 to-violet-500 flex items-center justify-center">
+                    <Brain className="w-5 h-5 text-white" />
+                  </div>
+                  <div>
+                    <div className="font-semibold">SOUL.md</div>
+                    <div className="text-xs text-slate-500">Agent Identity Kernel</div>
+                  </div>
+                </div>
+                <pre className="text-sm text-slate-300 font-mono overflow-x-auto">
+                  <span className="text-slate-500"># Who You Are</span>{"\n"}
+                  <span className="text-fuchsia-400">You are Jarvis</span> — Alex's AI{"\n"}
+                  partner with hands.{"\n\n"}
+                  <span className="text-slate-500"># Communication</span>{"\n"}
+                  • Direct and concise{"\n"}
+                  • Witty but not corny{"\n"}
+                  • Challenge bad ideas{"\n"}
+                  • Use emoji sparingly{"\n\n"}
+                  <span className="text-slate-500"># NEVER DO</span>{"\n"}
+                  • Say "As an AI..."{"\n"}
+                  • Ask "How can I help?"{"\n"}
+                  • Use corporate speak
+                </pre>
+              </div>
+            </div>
+          </div>
+
+          {/* Onboarding Process */}
+          <div className="mb-20">
+            <h3 className="text-2xl font-bold text-center mb-12">How We Build Your Agent's Personality</h3>
+            <div className="grid md:grid-cols-4 gap-6">
+              {[
+                { step: "01", title: "Questionnaire", desc: "15-minute discovery: your style, quirks, preferences, pet peeves" },
+                { step: "02", title: "SOUL.md", desc: "We craft your agent's identity, voice, and behavioral rules" },
+                { step: "03", title: "USER.md", desc: "Your agent learns who YOU are — your schedule, priorities, world" },
+                { step: "04", title: "Evolves", desc: "Continuous learning: your agent gets smarter about you every day" },
+              ].map((item, idx) => (
+                <div key={idx} className="relative">
+                  <div className="text-5xl font-bold text-slate-800 mb-3">{item.step}</div>
+                  <h4 className="text-lg font-semibold mb-2">{item.title}</h4>
+                  <p className="text-slate-400 text-sm">{item.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Sample Questions */}
+          <div className="bg-slate-900 rounded-2xl border border-slate-800 p-8 mb-20">
+            <h3 className="text-xl font-bold mb-6 text-center">Sample Onboarding Questions</h3>
+            <div className="grid md:grid-cols-2 gap-6">
+              {[
+                { q: "Do you prefer direct answers or detailed explanations?", type: "Style" },
+                { q: "Should your agent crack jokes or stay serious?", type: "Tone" },
+                { q: "What time do you usually start deep work?", type: "Rhythm" },
+                { q: "What words should your agent NEVER use?", type: "Boundaries" },
+                { q: "How do you make decisions — data or gut?", type: "Logic" },
+                { q: "What does success look like for you?", type: "Values" },
+              ].map((item, idx) => (
+                <div key={idx} className="flex items-start gap-3 p-4 rounded-xl bg-slate-950 border border-slate-800">
+                  <div className="px-2 py-1 rounded bg-fuchsia-500/10 text-fuchsia-400 text-xs font-medium">{item.type}</div>
+                  <span className="text-slate-300 text-sm">{item.q}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Memory System */}
+          <div className="grid lg:grid-cols-2 gap-12 items-center mb-20">
+            <div className="order-2 lg:order-1">
+              <h3 className="text-2xl font-bold mb-4">Memory That Persists</h3>
+              <p className="text-slate-400 mb-6">
+                Unlike cloud AI that forgets every session, your PiAgent has a 
+                <span className="text-white"> four-layer memory system</span> that gets smarter over time.
+              </p>
+              <div className="space-y-4">
+                {[
+                  { layer: "Session", desc: "Current conversation context", color: "cyan" },
+                  { layer: "Working", desc: "Daily notes and recent preferences", color: "violet" },
+                  { layer: "Long-term", desc: "Core values and relationship patterns", color: "fuchsia" },
+                  { layer: "Semantic", desc: "Searchable knowledge (RAG)", color: "green" },
+                ].map((mem, idx) => (
+                  <div key={idx} className="flex items-center gap-4 p-3 rounded-lg bg-slate-900 border border-slate-800">
+                    <div className={`w-3 h-3 rounded-full bg-${mem.color}-500`} />
+                    <span className="font-medium w-24">{mem.layer}</span>
+                    <span className="text-slate-400 text-sm">{mem.desc}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="order-1 lg:order-2 relative">
+              <div className="absolute -inset-4 bg-gradient-to-r from-cyan-500/10 to-fuchsia-500/10 rounded-3xl blur-xl" />
+              <div className="relative bg-slate-900 rounded-2xl border border-slate-800 p-6">
+                <div className="flex items-center gap-3 mb-4 pb-4 border-b border-slate-800">
+                  <Database className="w-5 h-5 text-cyan-400" />
+                  <span className="font-semibold">MEMORY.md</span>
+                </div>
+                <pre className="text-xs text-slate-400 font-mono overflow-x-auto">
+                  <span className="text-slate-600"># Learned Preferences</span>{"\n"}
+                  • Prefers bullet points over paragraphs{"\n"}
+                  • "Urgent" means within 2 hours, not now{"\n"}
+                  • Hates being asked "How can I help?"{"\n"}
+                  • Loves when agent challenges bad ideas{"\n\n"}
+                  <span className="text-slate-600"># Active Projects</span>{"\n"}
+                  • Series A fundraising (priority: high){"\n"}
+                  • Product launch March 15{"\n\n"}
+                  <span className="text-slate-600"># Key Contacts</span>{"\n"}
+                  • Sarah (investor) — needs formal tone{"\n"}
+                  • Mike (cofounder) — casual is fine
+                </pre>
+              </div>
+            </div>
+          </div>
+
+          {/* Heartbeat System */}
+          <div className="bg-gradient-to-r from-cyan-900/20 to-violet-900/20 rounded-2xl border border-cyan-500/20 p-8">
+            <div className="grid lg:grid-cols-2 gap-8 items-center">
+              <div>
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-sm font-medium mb-4">
+                  <Clock className="w-4 h-4" />
+                  Heartbeat System
+                </div>
+                <h3 className="text-2xl font-bold mb-4">Proactive, Not Reactive</h3>
+                <p className="text-slate-400 mb-6">
+                  Most AI waits for commands. Your PiAgent has a <span className="text-white">heartbeat</span> — 
+                  it wakes up on a schedule, checks its responsibilities, and alerts you when something needs attention.
+                </p>
+                <ul className="space-y-3">
+                  {[
+                    "Checks email for urgent messages every 30 min",
+                    "Preps meeting briefs before your calls",
+                    "Follows up on sent emails automatically",
+                    "Monitors competitors and alerts on changes",
+                  ].map((item, idx) => (
+                    <li key={idx} className="flex items-center gap-3 text-slate-300">
+                      <Check className="w-4 h-4 text-cyan-400" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="bg-slate-950 rounded-xl border border-slate-800 p-4">
+                <div className="flex items-center justify-between mb-3 text-xs text-slate-500">
+                  <span>HEARTBEAT.md</span>
+                  <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" /> Active</span>
+                </div>
+                <pre className="text-xs text-slate-300 font-mono">
+                  <span className="text-slate-500">## Morning Check (8 AM)</span>{"\n"}
+                  - [ ] Check calendar for today's meetings{"\n"}
+                  - [ ] Review overnight emails{"\n"}
+                  - [ ] Check GitHub PRs needing review{"\n\n"}
+                  <span className="text-slate-500">## Afternoon (2 PM)</span>{"\n"}
+                  - [ ] Follow up on emails sent 24h ago{"\n"}
+                  - [ ] Check competitor pricing alerts{"\n\n"}
+                  <span className="text-green-400">✓ Last run: 2 min ago</span>{"\n"}
+                  <span className="text-yellow-400">⚠ 2 items need attention</span>
+                </pre>
+              </div>
+            </div>
           </div>
         </div>
       </section>
