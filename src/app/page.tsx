@@ -5,7 +5,6 @@ import {
   Shield, 
   WifiOff, 
   DollarSign, 
-  Cpu, 
   Lock, 
   Zap,
   Check,
@@ -213,8 +212,12 @@ export default function LandingPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center gap-3">
-              <div className="w-9 h-9 bg-gradient-to-br from-cyan-400 to-violet-500 rounded-xl flex items-center justify-center shadow-lg shadow-cyan-500/20">
-                <Cpu className="w-5 h-5 text-white" />
+              <div className="relative w-10 h-10">
+                <img 
+                  src="/PiAgent.png" 
+                  alt="PiAgent" 
+                  className="w-full h-full object-contain"
+                />
               </div>
               <div>
                 <span className="font-bold text-xl tracking-tight">PiAgent</span>
@@ -250,6 +253,18 @@ export default function LandingPage() {
         
         <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
+            {/* Mascot */}
+            <div className="flex justify-center mb-6">
+              <div className="relative w-24 h-24 sm:w-32 sm:h-32">
+                <img 
+                  src="/PiAgent.jpeg" 
+                  alt="PiAgent Mascot" 
+                  className="w-full h-full object-contain rounded-2xl shadow-2xl shadow-red-500/20"
+                />
+                <div className="absolute -inset-2 bg-red-500/20 rounded-3xl blur-xl -z-10" />
+              </div>
+            </div>
+            
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-900/80 border border-slate-800 text-sm text-slate-400 mb-8 backdrop-blur-sm">
               <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
               Now accepting beta testers — Ships March 2025
@@ -935,6 +950,17 @@ export default function LandingPage() {
       <section id="waitlist" className="py-24 relative">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,_var(--tw-gradient-stops))] from-violet-900/20 via-slate-950 to-slate-950" />
         <div className="relative max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          {/* Mascot */}
+          <div className="flex justify-center mb-6">
+            <div className="relative w-16 h-16">
+              <img 
+                src="/PiAgent.jpeg" 
+                alt="PiAgent Mascot" 
+                className="w-full h-full object-contain rounded-xl shadow-xl shadow-red-500/20"
+              />
+            </div>
+          </div>
+          
           <h2 className="text-3xl sm:text-4xl font-bold mb-4">Join the Beta Program</h2>
           <p className="text-slate-400 text-lg mb-8">
             First 100 customers get <span className="text-white font-semibold">25% off</span> and early access to new skills. 
@@ -1013,8 +1039,12 @@ export default function LandingPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <div className="flex items-center gap-2">
-              <div className="w-8 h-8 bg-gradient-to-br from-cyan-400 to-violet-500 rounded-lg flex items-center justify-center">
-                <Cpu className="w-5 h-5 text-white" />
+              <div className="relative w-8 h-8">
+                <img 
+                  src="/PiAgent.png" 
+                  alt="PiAgent" 
+                  className="w-full h-full object-contain"
+                />
               </div>
               <span className="font-bold text-xl">PiAgent</span>
             </div>
