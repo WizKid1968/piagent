@@ -255,7 +255,7 @@ export default function LandingPage() {
           <div className="text-center mb-12">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-900/80 border border-slate-800 text-sm text-slate-400 mb-8 backdrop-blur-sm">
               <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
-              Now accepting beta testers — Ships March 2025
+              Now accepting beta testers — Ships February 28, 2026
             </div>
             
             <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight mb-6">
@@ -941,7 +941,7 @@ export default function LandingPage() {
           <h2 className="text-3xl sm:text-4xl font-bold mb-4">Join the Beta Program</h2>
           <p className="text-slate-400 text-lg mb-8">
             First 100 customers get <span className="text-white font-semibold">25% off</span> and early access to new skills. 
-            Beta units ship March 2025.
+            Beta units ship February 28, 2026.
           </p>
           
           {!submitted ? (
