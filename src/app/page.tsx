@@ -5,6 +5,7 @@ import {
   Shield, 
   WifiOff, 
   DollarSign, 
+  Cpu,
   Lock, 
   Zap,
   Check,
@@ -321,6 +322,108 @@ export default function LandingPage() {
                 <div className="text-slate-300 mb-2">→ Drafting personalized email... <span className="text-cyan-400">[AgentMail: hello@agentmail.to]</span></div>
                 <div className="text-slate-300 mb-4">→ Email ready for review. <span className="text-yellow-400">[Pending approval]</span></div>
                 <div className="text-slate-500 italic">Your data never left the building.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* The Hardware Section */}
+      <section className="py-24 bg-gradient-to-b from-slate-900/50 to-slate-950">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-sm font-medium mb-4">
+              <Cpu className="w-4 h-4" />
+              Pocket-Sized Power
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-bold mb-4">
+              An AI Agent With Arms, In Your Pocket
+            </h2>
+            <p className="text-slate-400 text-lg max-w-2xl mx-auto">
+              This isn't software you rent. It's a physical computer — smaller than a deck of cards — 
+              running a fully autonomous AI agent that can actually <span className="text-white">do things</span>.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8 mb-16">
+            <div className="bg-slate-900 rounded-2xl border border-slate-800 p-6 text-center">
+              <div className="w-16 h-16 mx-auto mb-4 rounded-xl bg-gradient-to-br from-cyan-500 to-violet-500 flex items-center justify-center">
+                <Cpu className="w-8 h-8 text-white" />
+              </div>
+              <h3 className="text-xl font-semibold mb-2">Raspberry Pi 5</h3>
+              <p className="text-slate-400 text-sm">
+                Quad-core 2.4GHz ARM CPU, up to 16GB RAM, NVMe SSD storage. 
+                Desktop power in a credit-card sized package.
+              </p>
+            </div>
+            <div className="bg-slate-900 rounded-2xl border border-slate-800 p-6 text-center">
+              <div className="w-16 h-16 mx-auto mb-4 rounded-xl bg-gradient-to-br from-violet-500 to-fuchsia-500 flex items-center justify-center">
+                <Terminal className="w-8 h-8 text-white" />
+              </div>
+              <h3 className="text-xl font-semibold mb-2">Arms & Hands</h3>
+              <p className="text-slate-400 text-sm">
+                Your agent has a terminal (bash), browser (Firefox), file system, 
+                and email. It can actually execute commands, not just chat.
+              </p>
+            </div>
+            <div className="bg-slate-900 rounded-2xl border border-slate-800 p-6 text-center">
+              <div className="w-16 h-16 mx-auto mb-4 rounded-xl bg-gradient-to-br from-fuchsia-500 to-pink-500 flex items-center justify-center">
+                <Shield className="w-8 h-8 text-white" />
+              </div>
+              <h3 className="text-xl font-semibold mb-2">Fully Encased</h3>
+              <p className="text-slate-400 text-sm">
+                Optional custom case with active cooling. Looks professional on your desk, 
+                stays cool under load, tamper-evident packaging.
+              </p>
+            </div>
+          </div>
+
+          <div className="bg-slate-900 rounded-2xl border border-slate-800 overflow-hidden">
+            <div className="grid lg:grid-cols-2 gap-0">
+              <div className="p-8 lg:p-12 flex flex-col justify-center">
+                <h3 className="text-2xl font-bold mb-4">OpenClaw + Raspberry Pi = Superpowers</h3>
+                <p className="text-slate-400 mb-6">
+                  OpenClaw is the open-source AI agent platform. We installed it on a Raspberry Pi 5, 
+                  added 15+ skills, configured security, and shipped it to you ready to work.
+                </p>
+                <ul className="space-y-3">
+                  {[
+                    "Pre-configured OpenClaw agent with your custom personality",
+                    "Ollama running local LLMs (Llama 3.2, Qwen 2.5)",
+                    "Docker containers for isolated, secure execution",
+                    "AgentMail email system with dedicated inbox",
+                    "Heartbeat system for proactive task management",
+                    "Full disk encryption and air-gap capability"
+                  ].map((item, idx) => (
+                    <li key={idx} className="flex items-start gap-3 text-slate-300">
+                      <Check className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="bg-slate-950 p-8 lg:p-12 flex items-center justify-center border-t lg:border-t-0 lg:border-l border-slate-800">
+                <div className="relative">
+                  <div className="absolute -inset-4 bg-gradient-to-r from-cyan-500/20 to-violet-500/20 rounded-3xl blur-xl" />
+                  <div className="relative bg-slate-900 rounded-2xl border border-slate-700 p-6 w-64">
+                    <div className="aspect-[3/4] bg-gradient-to-br from-slate-800 to-slate-900 rounded-xl border border-slate-700 flex flex-col items-center justify-center p-4">
+                      <div className="w-32 h-32 bg-gradient-to-br from-cyan-500/20 to-violet-500/20 rounded-full flex items-center justify-center mb-4">
+                        <Cpu className="w-16 h-16 text-cyan-400" />
+                      </div>
+                      <div className="text-center">
+                        <div className="text-white font-bold">Raspberry Pi 5</div>
+                        <div className="text-slate-500 text-sm">8GB RAM • 256GB NVMe</div>
+                      </div>
+                      <div className="mt-4 flex gap-2">
+                        <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+                        <span className="text-green-400 text-xs">Agent Online</span>
+                      </div>
+                    </div>
+                    <div className="mt-4 text-center text-slate-500 text-xs">
+                      Credit card sized • ~3.4 × 2.2 inches
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
