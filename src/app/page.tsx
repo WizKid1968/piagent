@@ -265,14 +265,13 @@ export default function LandingPage() {
                 alt="PiAgent" 
                 className="w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 object-contain inline-block"
               />
-              <span>An AI Employee That{" "}</span>
-              <span className="gradient-text">Actually Works</span>
+              <span>An AI Agent With Arms,</span>
+              <span className="gradient-text">In Your Pocket</span>
             </h1>
             
             <p className="text-xl sm:text-2xl text-slate-400 max-w-3xl mx-auto mb-8 leading-relaxed">
-              PiAgent is a pre-configured AI employee that lives on your desk. 
-              It sends emails, manages your calendar, writes code, researches competitors — 
-              and <span className="text-white font-medium">never sends your data to the cloud</span>.
+              This isn't software you rent. It's a physical computer — smaller than a deck of cards — 
+              running a fully autonomous AI agent that can actually <span className="text-white font-medium">do things</span>.
             </p>
             
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
@@ -342,11 +341,10 @@ export default function LandingPage() {
               Pocket-Sized Power
             </div>
             <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-              An AI Agent With Arms, In Your Pocket
+              What You Get
             </h2>
             <p className="text-slate-400 text-lg max-w-2xl mx-auto">
-              This isn't software you rent. It's a physical computer — smaller than a deck of cards — 
-              running a fully autonomous AI agent that can actually <span className="text-white">do things</span>.
+              A complete, ready-to-work AI agent system shipped to your door.
             </p>
           </div>
 
