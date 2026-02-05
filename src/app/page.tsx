@@ -263,7 +263,7 @@ export default function LandingPage() {
               <img 
                 src="/PiAgent.png" 
                 alt="PiAgent" 
-                className="w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 object-contain inline-block"
+                className="w-20 h-20 sm:w-24 sm:h-24 lg:w-28 lg:h-28 object-contain inline-block"
               />
               <span>An AI Agent With Arms,</span>
               <span className="gradient-text">In Your Pocket</span>
