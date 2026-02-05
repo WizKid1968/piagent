@@ -13,11 +13,12 @@ export const metadata: Metadata = {
   keywords: ["AI agent", "Raspberry Pi", "OpenClaw", "local AI", "private AI", "edge computing", "offline AI"],
   icons: {
     icon: [
-      { url: "/favicon.png?v=2", sizes: "32x32", type: "image/png" },
-      { url: "/favicon.png?v=2", sizes: "16x16", type: "image/png" },
+      { url: "/favicon.ico", sizes: "16x16 32x48" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
     ],
-    shortcut: "/favicon.png?v=2",
-    apple: { url: "/favicon.png?v=2", sizes: "180x180" },
+    shortcut: "/favicon.ico",
+    apple: { url: "/favicon-32x32.png", sizes: "32x32" },
   },
   openGraph: {
     title: "PiAgent | Your AI Agent, In a Box",
