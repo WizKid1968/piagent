@@ -378,6 +378,24 @@ export default function LandingPage() {
             </div>
           </div>
 
+          {/* Real Product Image */}
+          <div className="mb-12">
+            <div className="relative max-w-3xl mx-auto">
+              <div className="absolute -inset-4 bg-gradient-to-r from-cyan-500/20 to-violet-500/20 rounded-3xl blur-xl" />
+              <div className="relative bg-slate-900 rounded-2xl border border-slate-800 overflow-hidden">
+                <img 
+                  src="/image.png" 
+                  alt="PiAgent in hand - Raspberry Pi 5 with mountainous backdrop" 
+                  className="w-full h-auto"
+                />
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-slate-950 to-transparent p-6">
+                  <p className="text-white font-semibold">Pocket-sized power</p>
+                  <p className="text-slate-400 text-sm">Credit card sized computer, fits in your hand</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
           <div className="bg-slate-900 rounded-2xl border border-slate-800 overflow-hidden">
             <div className="grid lg:grid-cols-2 gap-0">
               <div className="p-8 lg:p-12 flex flex-col justify-center">
