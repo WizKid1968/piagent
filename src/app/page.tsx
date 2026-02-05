@@ -259,8 +259,13 @@ export default function LandingPage() {
               Now accepting beta testers — Ships February 28, 2026
             </div>
             
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight mb-6">
-              An AI Employee That{" "}
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight mb-6 flex items-center justify-center gap-4 flex-wrap">
+              <img 
+                src="/PiAgent.png" 
+                alt="PiAgent" 
+                className="w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 object-contain inline-block"
+              />
+              <span>An AI Employee That{" "}</span>
               <span className="gradient-text">Actually Works</span>
             </h1>
             
