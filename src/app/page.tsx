@@ -16,7 +16,31 @@ import {
   Calendar,
   Home as HomeIcon,
   Code,
-  Sparkles
+  Sparkles,
+  Terminal,
+  Globe,
+  Database,
+  Brain,
+  Rocket,
+  Briefcase,
+  TrendingUp,
+  Users,
+  MessageSquare,
+  HardDrive,
+  Eye,
+  Fingerprint,
+  Container,
+  Network,
+  Clock,
+  Target,
+  Layers,
+  Settings,
+  GitBranch,
+  BarChart3,
+  Search,
+  PenTool,
+  ShoppingCart,
+  Headphones
 } from "lucide-react";
 
 export default function LandingPage() {
@@ -24,78 +48,159 @@ export default function LandingPage() {
   const [plan, setPlan] = useState("pro");
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [activeTab, setActiveTab] = useState("entrepreneur");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    // Simulate API call
     await new Promise(resolve => setTimeout(resolve, 1000));
     setSubmitted(true);
     setLoading(false);
   };
 
-  const features = [
+  // Comprehensive Skills Library
+  const skills = {
+    communication: [
+      { icon: Mail, name: "AgentMail", desc: "Dedicated email inbox @agentmail.to — send, receive, auto-respond like a human" },
+      { icon: MessageSquare, name: "Chat Bridge", desc: "Telegram, Slack, Discord integration with context-aware responses" },
+      { icon: Calendar, name: "Scheduler", desc: "Calendar management, meeting booking, reminder systems" },
+    ],
+    productivity: [
+      { icon: FileText, name: "Document Analyst", desc: "Summarize 100-page PDFs, extract clauses, compare contracts" },
+      { icon: Search, name: "Research Agent", desc: "Web search, content extraction, competitive analysis" },
+      { icon: PenTool, name: "Content Creator", desc: "Write emails, reports, blog posts, social media with your voice" },
+    ],
+    technical: [
+      { icon: Terminal, name: "Terminal Access", desc: "Execute shell commands, run scripts, deploy code" },
+      { icon: Code, name: "Code Assistant", desc: "Review, debug, generate code across 20+ languages" },
+      { icon: GitBranch, name: "Git Operator", desc: "Commit, push, PR reviews, branch management" },
+    ],
+    business: [
+      { icon: BarChart3, name: "Data Analyst", desc: "CSV/Excel processing, visualization, trend analysis" },
+      { icon: Database, name: "CRM Sync", desc: "HubSpot, Salesforce, Airtable integration" },
+      { icon: ShoppingCart, name: "E-commerce", desc: "Order processing, inventory checks, customer follow-ups" },
+    ],
+    system: [
+      { icon: HardDrive, name: "File System", desc: "Read/write files, organize directories, batch processing" },
+      { icon: Globe, name: "Browser Control", desc: "Navigate websites, fill forms, extract data, take screenshots" },
+      { icon: Clock, name: "Cron Jobs", desc: "Scheduled tasks, recurring reports, automated monitoring" },
+    ]
+  };
+
+  // Use Cases by Persona
+  const personas = {
+    entrepreneur: {
+      icon: Rocket,
+      title: "The Solo Founder",
+      headline: "Your First Employee That Works 24/7",
+      description: "Handle investor outreach, customer support, and competitor research while you build. Your agent drafts pitch decks, manages your calendar, and never sleeps.",
+      tasks: [
+        "Drafts personalized cold emails to investors with follow-up sequences",
+        "Monitors competitor pricing and features daily",
+        "Manages customer support inbox with human-like responses",
+        "Creates weekly progress reports from Git commits and updates",
+        "Books meetings across time zones without the back-and-forth"
+      ],
+      roi: "Replaces 2-3 part-time contractors ($3,000-5,000/mo)"
+    },
+    sales: {
+      icon: TrendingUp,
+      title: "The Sales Closer",
+      headline: "Never Miss a Lead Again",
+      description: "Qualify prospects, research decision-makers, and craft personalized outreach at scale. Your agent knows every prospect's pain points before you call.",
+      tasks: [
+        "Researches prospects on LinkedIn before your calls",
+        "Drafts personalized cold emails using company news/triggers",
+        "Auto-qualifies inbound leads via email conversation",
+        "Schedules demos directly into your calendar",
+        "Follows up with stalled deals automatically"
+      ],
+      roi: "3x pipeline velocity, 40% more meetings booked"
+    },
+    marketing: {
+      icon: Target,
+      title: "The Growth Hacker",
+      headline: "Content Machine That Sounds Like You",
+      description: "Generate blog posts, social content, and email campaigns while maintaining brand voice. Research keywords, analyze competitors, optimize for SEO.",
+      tasks: [
+        "Writes weekly blog posts from bullet points",
+        "Creates social media content calendar with scheduling",
+        "Analyzes competitor content strategies",
+        "Drafts email newsletters with A/B test variants",
+        "Monitors brand mentions and sentiment across web"
+      ],
+      roi: "10x content output with consistent quality"
+    },
+    professional: {
+      icon: Briefcase,
+      title: "The Executive",
+      headline: "Your Chief of Staff in a Box",
+      description: "Manage inbox zero, prep for meetings, draft executive communications. Your agent knows your priorities and handles the noise so you focus on decisions.",
+      tasks: [
+        "Summarizes long email threads with action items",
+        "Preps meeting briefs with attendee backgrounds",
+        "Drafts executive communications in your voice",
+        "Tracks project deadlines and sends reminders",
+        "Manages expense reports and documentation"
+      ],
+      roi: "Reclaims 15+ hours/week of admin time"
+    }
+  };
+
+  // Security Features
+  const securityLayers = [
     {
-      icon: Shield,
-      title: "Complete Privacy",
-      description: "Your data never leaves the device. No cloud processing, no data mining, no surveillance."
+      icon: Container,
+      title: "Docker Containerization",
+      description: "Each agent runs in isolated Docker containers with restricted permissions. Compromised? It stays contained. No system-wide access, no escape routes."
     },
     {
-      icon: WifiOff,
-      title: "Works Offline",
-      description: "Internet connection optional. Your agent runs entirely on-device, anywhere, anytime."
+      icon: Network,
+      title: "Air-Gap Capable",
+      description: "Physically disconnect from the internet and your agent keeps working. No cloud dependencies, no telemetry, no data leakage. Military-grade isolation."
     },
     {
-      icon: DollarSign,
-      title: "No Subscriptions",
-      description: "Buy once, own forever. No monthly fees, no API costs, no usage limits."
+      icon: Fingerprint,
+      title: "Zero-Trust Architecture",
+      description: "Every action verified. Least-privilege principles. No default passwords. Encrypted storage at rest. Your agent can't be turned against you."
     },
     {
-      icon: Cpu,
-      title: "OpenClaw Powered",
-      description: "Built on the extensible OpenClaw agent architecture. Add skills, customize behavior."
+      icon: Eye,
+      title: "Complete Audit Trail",
+      description: "Every command, every file access, every email logged locally. Full transparency into what your agent does. No black boxes."
     },
     {
       icon: Lock,
-      title: "Physically Secure",
-      description: "You own the hardware. Air-gap capable. Full disk encryption standard."
+      title: "Full Disk Encryption",
+      description: "LUKS encryption standard. Your data is unreadable without the key. Physical theft? They get hardware, not your information."
     },
     {
-      icon: Zap,
-      title: "Zero Latency",
-      description: "No network round-trips. Instant responses. Local inference at 8+ tokens/sec."
+      icon: Shield,
+      title: "No Cloud, No Leaks",
+      description: "Unlike ChatGPT, Claude, or Gemini — your documents never train public models. Proprietary data stays proprietary. Period."
     }
-  ];
-
-  const skills = [
-    { icon: Sparkles, name: "Personal Assistant", desc: "Calendar, reminders, notes, tasks" },
-    { icon: FileText, name: "Document Analyst", desc: "Summarize, extract, compare documents" },
-    { icon: Mail, name: "Email Manager", desc: "Draft, organize, auto-respond" },
-    { icon: Server, name: "Research Assistant", desc: "Search, summarize, cite sources" },
-    { icon: Code, name: "Code Helper", desc: "Review, explain, debug code" },
-    { icon: HomeIcon, name: "Home Automator", desc: "IoT control, scripts, routines" },
   ];
 
   const pricing = [
     {
       name: "Starter",
       price: "$399",
-      description: "Perfect for personal use",
-      specs: ["Pi 5 (4GB RAM)", "128GB Storage", "1 Pre-configured Skill", "Email Support (30 days)"],
+      description: "Personal productivity",
+      specs: ["Pi 5 (4GB RAM)", "128GB Storage", "5 Core Skills", "AgentMail inbox", "Email Support (30 days)"],
       popular: false
     },
     {
       name: "Professional",
       price: "$599",
-      description: "Best for power users",
-      specs: ["Pi 5 (8GB RAM)", "256GB NVMe Storage", "3 Custom Skills", "Priority Support (90 days)", "Auto Updates"],
+      description: "Business power user",
+      specs: ["Pi 5 (8GB RAM)", "256GB NVMe SSD", "15+ Skills", "AgentMail + Custom Domain", "Priority Support (90 days)", "Docker Environment", "Auto Updates"],
       popular: true
     },
     {
       name: "Enterprise",
       price: "$999",
-      description: "For teams & organizations",
-      specs: ["Pi 5 (16GB RAM)", "512GB NVMe Storage", "Unlimited Skills", "White-label Option", "1 Year Premium Support", "Onboarding Call"],
+      description: "Teams & organizations",
+      specs: ["Pi 5 (16GB RAM)", "512GB NVMe SSD", "All Skills + Custom", "Unlimited AgentMail", "White-label Option", "1 Year Premium Support", "Onboarding Call", "VPN Integration"],
       popular: false
     }
   ];
@@ -103,21 +208,33 @@ export default function LandingPage() {
   return (
     <div className="min-h-screen bg-slate-950">
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-slate-800">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-slate-950/90 backdrop-blur-xl border-b border-slate-800/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
-            <div className="flex items-center gap-2">
-              <div className="w-8 h-8 bg-gradient-to-br from-cyan-400 to-violet-500 rounded-lg flex items-center justify-center">
+            <div className="flex items-center gap-3">
+              <div className="w-9 h-9 bg-gradient-to-br from-cyan-400 to-violet-500 rounded-xl flex items-center justify-center shadow-lg shadow-cyan-500/20">
                 <Cpu className="w-5 h-5 text-white" />
               </div>
-              <span className="font-bold text-xl tracking-tight">PiAgent</span>
+              <div>
+                <span className="font-bold text-xl tracking-tight">PiAgent</span>
+                <span className="hidden sm:inline text-slate-500 text-sm ml-2">by OpenClaw</span>
+              </div>
             </div>
-            <div className="hidden md:flex items-center gap-8">
-              <a href="#features" className="text-slate-400 hover:text-white transition-colors">Features</a>
-              <a href="#skills" className="text-slate-400 hover:text-white transition-colors">Skills</a>
-              <a href="#pricing" className="text-slate-400 hover:text-white transition-colors">Pricing</a>
-              <a href="#waitlist" className="bg-gradient-to-r from-cyan-500 to-violet-500 hover:from-cyan-400 hover:to-violet-400 text-white px-4 py-2 rounded-full font-medium transition-all">
-                Join Waitlist
+            <div className="hidden md:flex items-center gap-1">
+              {['Capabilities', 'Security', 'Use Cases', 'Pricing'].map((item) => (
+                <a 
+                  key={item}
+                  href={`#${item.toLowerCase().replace(' ', '-')}`}
+                  className="px-4 py-2 text-sm text-slate-400 hover:text-white transition-colors rounded-lg hover:bg-slate-900"
+                >
+                  {item}
+                </a>
+              ))}
+              <a 
+                href="#waitlist"
+                className="ml-4 px-5 py-2.5 bg-gradient-to-r from-cyan-500 to-violet-500 hover:from-cyan-400 hover:to-violet-400 text-white rounded-full font-medium text-sm transition-all shadow-lg shadow-violet-500/25"
+              >
+                Get Early Access
               </a>
             </div>
           </div>
@@ -127,152 +244,437 @@ export default function LandingPage() {
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 lg:pt-40 lg:pb-32 overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-violet-900/20 via-slate-950 to-slate-950" />
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-cyan-500/10 rounded-full blur-3xl" />
+        <div className="absolute top-20 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-cyan-500/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 right-0 w-[800px] h-[400px] bg-violet-500/10 rounded-full blur-3xl" />
         
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-900 border border-slate-800 text-sm text-slate-400 mb-8">
-            <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
-            Now accepting early adopters
-          </div>
-          
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight mb-6">
-            Your AI Agent,{" "}
-            <span className="gradient-text">In a Box</span>
-          </h1>
-          
-          <p className="text-xl sm:text-2xl text-slate-400 max-w-3xl mx-auto mb-10">
-            Pre-configured Raspberry Pi 5 computers running custom OpenClaw AI agents. 
-            Private. Local. Yours. No subscriptions. No cloud required.
-          </p>
-          
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a 
-              href="#waitlist"
-              className="group flex items-center gap-2 bg-gradient-to-r from-cyan-500 to-violet-500 hover:from-cyan-400 hover:to-violet-400 text-white px-8 py-4 rounded-full font-semibold text-lg transition-all glow-cyan"
-            >
-              Reserve Yours
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </a>
-            <a 
-              href="#features"
-              className="flex items-center gap-2 text-slate-400 hover:text-white px-8 py-4 rounded-full font-medium text-lg transition-colors border border-slate-800 hover:border-slate-600"
-            >
-              Learn More
-            </a>
-          </div>
-          
-          <div className="mt-16 flex items-center justify-center gap-8 text-slate-500 text-sm">
-            <div className="flex items-center gap-2">
-              <Check className="w-4 h-4 text-green-400" />
-              Ships Pre-Configured
+        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-900/80 border border-slate-800 text-sm text-slate-400 mb-8 backdrop-blur-sm">
+              <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
+              Now accepting beta testers — Ships March 2025
             </div>
-            <div className="flex items-center gap-2">
-              <Check className="w-4 h-4 text-green-400" />
-              30-Day Guarantee
+            
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight mb-6">
+              An AI Employee That{" "}
+              <span className="gradient-text">Actually Works</span>
+            </h1>
+            
+            <p className="text-xl sm:text-2xl text-slate-400 max-w-3xl mx-auto mb-8 leading-relaxed">
+              PiAgent is a pre-configured AI employee that lives on your desk. 
+              It sends emails, manages your calendar, writes code, researches competitors — 
+              and <span className="text-white font-medium">never sends your data to the cloud</span>.
+            </p>
+            
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
+              <a 
+                href="#waitlist"
+                className="group flex items-center gap-2 bg-gradient-to-r from-cyan-500 to-violet-500 hover:from-cyan-400 hover:to-violet-400 text-white px-8 py-4 rounded-full font-semibold text-lg transition-all shadow-xl shadow-violet-500/20 hover:shadow-violet-500/40"
+              >
+                Reserve Your Agent
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </a>
+              <a 
+                href="#capabilities"
+                className="flex items-center gap-2 text-slate-400 hover:text-white px-8 py-4 rounded-full font-medium text-lg transition-colors border border-slate-800 hover:border-slate-600"
+              >
+                See What It Can Do
+              </a>
             </div>
-            <div className="flex items-center gap-2">
-              <Check className="w-4 h-4 text-green-400" />
-              Free Shipping
+            
+            {/* Stats */}
+            <div className="flex flex-wrap items-center justify-center gap-8 text-slate-500">
+              {[
+                { value: "0", label: "Cloud Dependencies" },
+                { value: "15+", label: "Built-in Skills" },
+                { value: "24/7", label: "Autonomous Operation" },
+                { value: "$0/mo", label: "Subscription Cost" }
+              ].map((stat, idx) => (
+                <div key={idx} className="text-center">
+                  <div className="text-2xl font-bold text-white">{stat.value}</div>
+                  <div className="text-sm">{stat.label}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Visual Demo Placeholder */}
+          <div className="relative max-w-4xl mx-auto">
+            <div className="absolute -inset-1 bg-gradient-to-r from-cyan-500 to-violet-500 rounded-2xl blur opacity-20" />
+            <div className="relative bg-slate-900 rounded-2xl border border-slate-800 overflow-hidden">
+              <div className="flex items-center gap-2 px-4 py-3 bg-slate-950 border-b border-slate-800">
+                <div className="flex gap-1.5">
+                  <div className="w-3 h-3 rounded-full bg-red-500/80" />
+                  <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
+                  <div className="w-3 h-3 rounded-full bg-green-500/80" />
+                </div>
+                <div className="flex-1 text-center text-xs text-slate-500 font-mono">piagent@localhost:~$</div>
+              </div>
+              <div className="p-6 font-mono text-sm">
+                <div className="text-slate-400 mb-2">$ piagent status</div>
+                <div className="text-green-400 mb-4">✓ Agent online | 15 skills loaded | 0 cloud connections</div>
+                <div className="text-slate-400 mb-2">$ piagent task "Draft follow-up email to ACME Corp proposal"</div>
+                <div className="text-slate-300 mb-2">→ Anzing ACME Corp... <span className="text-cyan-400">[local research]</span></div>
+                <div className="text-slate-300 mb-2">→ Drafting personalized email... <span className="text-cyan-400">[AgentMail: hello@agentmail.to]</span></div>
+                <div className="text-slate-300 mb-4">→ Email ready for review. <span className="text-yellow-400">[Pending approval]</span></div>
+                <div className="text-slate-500 italic">Your data never left the building.</div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Features Grid */}
-      <section id="features" className="py-24 relative">
+      {/* The Problem Section */}
+      <section className="py-20 bg-slate-900/30">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-3xl sm:text-4xl font-bold mb-6">
+                Cloud AI Is Eating Your Data
+              </h2>
+              <p className="text-slate-400 text-lg mb-6">
+                Every document you upload to ChatGPT, every email you draft in Claude, 
+                every proprietary insight you share — it becomes training data. 
+                Your competitive advantage? Now it's OpenAI's.
+              </p>
+              <ul className="space-y-4">
+                {[
+                  "Client contracts analyzed by third-party servers",
+                  "Proprietary code sent to cloud LLMs",
+                  "Patient data exposed for HIPAA violations",
+                  "$20-200/month per user in subscription fees"
+                ].map((item, idx) => (
+                  <li key={idx} className="flex items-start gap-3">
+                    <div className="w-5 h-5 rounded-full bg-red-500/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <span className="text-red-400 text-xs">✕</span>
+                    </div>
+                    <span className="text-slate-300">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="relative">
+              <div className="absolute -inset-4 bg-gradient-to-r from-red-500/20 to-orange-500/20 rounded-3xl blur-xl" />
+              <div className="relative bg-slate-900 rounded-2xl border border-red-500/30 p-8">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-10 h-10 rounded-full bg-red-500/20 flex items-center justify-center">
+                    <Shield className="w-5 h-5 text-red-400" />
+                  </div>
+                  <span className="font-semibold text-red-400">The Cloud AI Risk</span>
+                </div>
+                <div className="space-y-4 text-sm">
+                  <div className="flex justify-between py-2 border-b border-slate-800">
+                    <span className="text-slate-400">Data Retention</span>
+                    <span className="text-red-400">30-90 days minimum</span>
+                  </div>
+                  <div className="flex justify-between py-2 border-b border-slate-800">
+                    <span className="text-slate-400">Training Usage</span>
+                    <span className="text-red-400">Opt-out buried in settings</span>
+                  </div>
+                  <div className="flex justify-between py-2 border-b border-slate-800">
+                    <span className="text-slate-400">Compliance</span>
+                    <span className="text-red-400">SOC2, not your control</span>
+                  </div>
+                  <div className="flex justify-between py-2">
+                    <span className="text-slate-400">Monthly Cost (10 users)</span>
+                    <span className="text-red-400">$200-2,000+</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Capabilities Grid */}
+      <section id="capabilities" className="py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold mb-4">Why PiAgent?</h2>
+            <h2 className="text-3xl sm:text-4xl font-bold mb-4">15+ Skills. Infinite Possibilities.</h2>
             <p className="text-slate-400 text-lg max-w-2xl mx-auto">
-              Cloud AI services own your data. We don't. PiAgent puts you back in control.
+              Your agent comes pre-loaded with enterprise-grade capabilities. 
+              Mix, match, and customize for your workflow.
+            </p>
+          </div>
+          
+          {Object.entries(skills).map(([category, categorySkills], catIdx) => (
+            <div key={category} className="mb-12">
+              <h3 className="text-lg font-semibold text-slate-300 mb-4 capitalize flex items-center gap-2">
+                <Layers className="w-5 h-5 text-cyan-400" />
+                {category}
+              </h3>
+              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                {categorySkills.map((skill, idx) => (
+                  <div 
+                    key={idx}
+                    className="group p-5 rounded-xl bg-slate-900 border border-slate-800 hover:border-cyan-500/50 transition-all hover:shadow-lg hover:shadow-cyan-500/10"
+                  >
+                    <div className="flex items-start gap-4">
+                      <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-cyan-500/20 to-violet-500/20 flex items-center justify-center flex-shrink-0 group-hover:from-cyan-500/30 group-hover:to-violet-500/30 transition-all">
+                        <skill.icon className="w-5 h-5 text-cyan-400" />
+                      </div>
+                      <div>
+                        <h4 className="font-semibold mb-1 group-hover:text-cyan-400 transition-colors">{skill.name}</h4>
+                        <p className="text-sm text-slate-400 leading-relaxed">{skill.desc}</p>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Use Cases by Persona */}
+      <section id="use-cases" className="py-24 bg-slate-900/30">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl sm:text-4xl font-bold mb-4">Built for How You Work</h2>
+            <p className="text-slate-400 text-lg max-w-2xl mx-auto">
+              From solo founders to enterprise teams — see how PiAgent adapts to your role.
+            </p>
+          </div>
+          
+          {/* Tabs */}
+          <div className="flex flex-wrap justify-center gap-2 mb-12">
+            {Object.entries(personas).map(([key, persona]) => (
+              <button
+                key={key}
+                onClick={() => setActiveTab(key)}
+                className={`flex items-center gap-2 px-5 py-3 rounded-full font-medium transition-all ${
+                  activeTab === key
+                    ? "bg-gradient-to-r from-cyan-500 to-violet-500 text-white shadow-lg shadow-violet-500/25"
+                    : "bg-slate-900 text-slate-400 hover:text-white border border-slate-800"
+                }`}
+              >
+                <persona.icon className="w-4 h-4" />
+                {persona.title}
+              </button>
+            ))}
+          </div>
+          
+          {/* Active Persona Content */}
+          <div className="grid lg:grid-cols-2 gap-8 items-center">
+            <div className="bg-slate-900 rounded-2xl border border-slate-800 p-8">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-500 to-violet-500 flex items-center justify-center">
+                  {(() => {
+                    const PersonaIcon = personas[activeTab as keyof typeof personas].icon;
+                    return <PersonaIcon className="w-6 h-6 text-white" />;
+                  })()}
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold">{personas[activeTab as keyof typeof personas].headline}</h3>
+                  <p className="text-slate-400">{personas[activeTab as keyof typeof personas].title}</p>
+                </div>
+              </div>
+              <p className="text-slate-300 mb-6 text-lg">
+                {personas[activeTab as keyof typeof personas].description}
+              </p>
+              <div className="bg-gradient-to-r from-green-500/10 to-emerald-500/10 border border-green-500/30 rounded-lg p-4">
+                <div className="flex items-center gap-2 text-green-400 font-semibold mb-1">
+                  <TrendingUp className="w-4 h-4" />
+                  ROI Impact
+                </div>
+                <p className="text-slate-300 text-sm">{personas[activeTab as keyof typeof personas].roi}</p>
+              </div>
+            </div>
+            
+            <div className="space-y-4">
+              <h4 className="font-semibold text-slate-300 mb-4">What Your Agent Does:</h4>
+              {personas[activeTab as keyof typeof personas].tasks.map((task, idx) => (
+                <div key={idx} className="flex items-start gap-3 p-4 rounded-xl bg-slate-900/50 border border-slate-800">
+                  <div className="w-6 h-6 rounded-full bg-cyan-500/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <Check className="w-3.5 h-3.5 text-cyan-400" />
+                  </div>
+                  <span className="text-slate-300">{task}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* AgentMail Section */}
+      <section className="py-20">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="order-2 lg:order-1">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-violet-500/10 border border-violet-500/30 text-violet-400 text-sm font-medium mb-4">
+                <Mail className="w-4 h-4" />
+                AgentMail Integration
+              </div>
+              <h2 className="text-3xl sm:text-4xl font-bold mb-6">
+                Your Agent Has Its Own Email Address
+              </h2>
+              <p className="text-slate-400 text-lg mb-6">
+                Every PiAgent includes AgentMail — a dedicated email inbox designed for AI agents. 
+                Your agent can send, receive, and respond to emails just like a human team member.
+              </p>
+              <ul className="space-y-3 mb-8">
+                {[
+                  "Professional @agentmail.to address",
+                  "Two-way conversation handling",
+                  "Thread-aware responses with context",
+                  "Human-in-the-loop approval for sends",
+                  "Custom domain support (Pro+)"
+                ].map((item, idx) => (
+                  <li key={idx} className="flex items-center gap-3 text-slate-300">
+                    <Check className="w-5 h-5 text-green-400 flex-shrink-0" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <div className="p-4 rounded-lg bg-slate-900 border border-slate-800 font-mono text-sm">
+                <span className="text-slate-500">Example:</span>
+                <div className="text-cyan-400 mt-1">sarah.agent@agentmail.to</div>
+              </div>
+            </div>
+            <div className="order-1 lg:order-2 relative">
+              <div className="absolute -inset-4 bg-gradient-to-r from-violet-500/20 to-cyan-500/20 rounded-3xl blur-xl" />
+              <div className="relative bg-slate-900 rounded-2xl border border-slate-800 p-6">
+                <div className="flex items-center justify-between mb-4 pb-4 border-b border-slate-800">
+                  <span className="text-slate-400 text-sm">Inbox (3 new)</span>
+                  <span className="text-xs text-slate-500">sarah.agent@agentmail.to</span>
+                </div>
+                <div className="space-y-3">
+                  {[
+                    { from: "john@client.com", subject: "Re: Proposal Feedback", time: "2m ago", unread: true },
+                    { from: "marketing@company.com", subject: "Campaign Stats", time: "15m ago", unread: true },
+                    { from: "no-reply@github.com", subject: "PR #234 Merged", time: "1h ago", unread: false },
+                  ].map((email, idx) => (
+                    <div key={idx} className={`p-3 rounded-lg ${email.unread ? 'bg-slate-800/50 border-l-2 border-cyan-500' : 'bg-slate-900'}`}>
+                      <div className="flex justify-between items-start mb-1">
+                        <span className={`text-sm ${email.unread ? 'font-semibold text-white' : 'text-slate-400'}`}>{email.from}</span>
+                        <span className="text-xs text-slate-500">{email.time}</span>
+                      </div>
+                      <div className={`text-sm ${email.unread ? 'text-slate-300' : 'text-slate-500'}`}>{email.subject}</div>
+                    </div>
+                  ))}
+                </div>
+                <div className="mt-4 pt-4 border-t border-slate-800">
+                  <div className="flex items-center gap-2 text-sm text-green-400">
+                    <Sparkles className="w-4 h-4" />
+                    <span>Agent drafted 2 responses awaiting approval</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Security Deep Dive */}
+      <section id="security" className="py-24 bg-slate-900/30">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green-500/10 border border-green-500/30 text-green-400 text-sm font-medium mb-4">
+              <Shield className="w-4 h-4" />
+              Enterprise-Grade Security
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-bold mb-4">Built Like a Vault, Not a Cloud App</h2>
+            <p className="text-slate-400 text-lg max-w-2xl mx-auto">
+              We didn't bolt on security — we built the entire architecture around it. 
+              Defense in depth, zero trust, and complete transparency.
             </p>
           </div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {features.map((feature, idx) => (
+            {securityLayers.map((layer, idx) => (
               <div 
                 key={idx}
-                className="group p-6 rounded-2xl bg-slate-900/50 border border-slate-800 hover:border-cyan-500/50 transition-all hover:glow-cyan"
+                className="group p-6 rounded-2xl bg-slate-900 border border-slate-800 hover:border-green-500/50 transition-all hover:shadow-lg hover:shadow-green-500/10"
               >
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-500/20 to-violet-500/20 flex items-center justify-center mb-4 group-hover:from-cyan-500/30 group-hover:to-violet-500/30 transition-all">
-                  <feature.icon className="w-6 h-6 text-cyan-400" />
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-green-500/20 to-emerald-500/20 flex items-center justify-center mb-4 group-hover:from-green-500/30 group-hover:to-emerald-500/30 transition-all">
+                  <layer.icon className="w-6 h-6 text-green-400" />
                 </div>
-                <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
-                <p className="text-slate-400">{feature.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Skills Section */}
-      <section id="skills" className="py-24 bg-slate-900/30">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold mb-4">Ready-to-Use Skills</h2>
-            <p className="text-slate-400 text-lg max-w-2xl mx-auto">
-              Pre-configured agents for common tasks. Or build your own with our skill SDK.
-            </p>
-          </div>
-          
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {skills.map((skill, idx) => (
-              <div 
-                key={idx}
-                className="flex items-start gap-4 p-4 rounded-xl bg-slate-900 border border-slate-800 hover:border-violet-500/50 transition-all"
-              >
-                <div className="w-10 h-10 rounded-lg bg-violet-500/20 flex items-center justify-center flex-shrink-0">
-                  <skill.icon className="w-5 h-5 text-violet-400" />
-                </div>
-                <div>
-                  <h3 className="font-semibold mb-1">{skill.name}</h3>
-                  <p className="text-sm text-slate-400">{skill.desc}</p>
-                </div>
+                <h3 className="text-lg font-semibold mb-2 group-hover:text-green-400 transition-colors">{layer.title}</h3>
+                <p className="text-slate-400 text-sm leading-relaxed">{layer.description}</p>
               </div>
             ))}
           </div>
           
-          <div className="mt-12 text-center">
-            <p className="text-slate-500">
-              + More skills available in the skill store. Custom skill development available for Enterprise.
-            </p>
+          {/* Security Comparison */}
+          <div className="mt-16 max-w-4xl mx-auto">
+            <div className="bg-slate-900 rounded-2xl border border-slate-800 overflow-hidden">
+              <div className="grid grid-cols-3 gap-4 p-4 bg-slate-950 border-b border-slate-800 font-semibold text-sm">
+                <div className="text-slate-400">Security Feature</div>
+                <div className="text-center text-red-400">Cloud AI (ChatGPT/Claude)</div>
+                <div className="text-center text-green-400">PiAgent</div>
+              </div>
+              {[
+                { feature: "Data Leaves Your Premises", cloud: "Yes — to their servers", piagent: "Never — stays on device", winner: "piagent" },
+                { feature: "Training Data Usage", cloud: "Opt-out only", piagent: "Impossible — no cloud connection", winner: "piagent" },
+                { feature: "Physical Control", cloud: "None — you rent access", piagent: "Full — you own the hardware", winner: "piagent" },
+                { feature: "Air-Gap Capability", cloud: "No — requires internet", piagent: "Yes — works fully offline", winner: "piagent" },
+                { feature: "Audit Logs", cloud: "Theirs — limited visibility", piagent: "Yours — complete transparency", winner: "piagent" },
+                { feature: "Container Isolation", cloud: "Shared infrastructure", piagent: "Dedicated Docker per agent", winner: "piagent" },
+              ].map((row, idx) => (
+                <div key={idx} className="grid grid-cols-3 gap-4 p-4 border-b border-slate-800/50 text-sm">
+                  <div className="text-slate-300">{row.feature}</div>
+                  <div className="text-center text-slate-500">{row.cloud}</div>
+                  <div className="text-center text-green-400 font-medium">{row.piagent}</div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
       {/* How It Works */}
       <section className="py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold mb-4">Plug-and-Play Simple</h2>
-            <p className="text-slate-400 text-lg max-w-2xl mx-auto">
-              No setup required. We do the hard work so you don't have to.
-            </p>
+            <h2 className="text-3xl sm:text-4xl font-bold mb-4">From Box to Business Impact in Minutes</h2>
           </div>
           
           <div className="grid md:grid-cols-3 gap-8">
             {[
-              { step: "01", title: "We Build", desc: "We assemble, configure, and test your PiAgent with your selected skills." },
-              { step: "02", title: "We Ship", desc: "Your PiAgent arrives pre-configured. Just plug in power and ethernet." },
-              { step: "03", title: "You Use", desc: "Start chatting with your agent immediately via web interface or API." },
+              { 
+                step: "01", 
+                title: "We Build", 
+                desc: "Our engineers assemble your Pi 5, install the hardened OS, configure Docker containers, load your selected skills, and test everything.",
+                details: ["Hardware assembly & thermal testing", "Docker container hardening", "Skill configuration & calibration", "48-hour burn-in testing"]
+              },
+              { 
+                step: "02", 
+                title: "We Ship", 
+                desc: "Your PiAgent arrives in secure packaging. Plug in power and ethernet. No setup wizard, no command line, no IT degree required.",
+                details: ["Tamper-evident packaging", "Pre-configured WiFi credentials", "Access credentials in sealed envelope", "Quick start guide included"]
+              },
+              { 
+                step: "03", 
+                title: "You Command", 
+                desc: "Open the web interface, start chatting. Your agent is ready to handle emails, research, coding, or whatever you configured.",
+                details: ["Web interface at piagent.local", "Natural language commands", "Approval workflows for sensitive actions", "Mobile-friendly responsive UI"]
+              },
             ].map((item, idx) => (
-              <div key={idx} className="text-center">
-                <div className="text-6xl font-bold text-slate-800 mb-4">{item.step}</div>
-                <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
-                <p className="text-slate-400">{item.desc}</p>
+              <div key={idx} className="relative">
+                <div className="text-7xl font-bold text-slate-800 mb-4">{item.step}</div>
+                <h3 className="text-xl font-semibold mb-3">{item.title}</h3>
+                <p className="text-slate-400 mb-4">{item.desc}</p>
+                <ul className="space-y-2">
+                  {item.details.map((detail, didx) => (
+                    <li key={didx} className="flex items-center gap-2 text-sm text-slate-500">
+                      <div className="w-1 h-1 rounded-full bg-cyan-500" />
+                      {detail}
+                    </li>
+                  ))}
+                </ul>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Pricing Section */}
+      {/* Pricing */}
       <section id="pricing" className="py-24 bg-slate-900/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold mb-4">Simple Pricing</h2>
+            <h2 className="text-3xl sm:text-4xl font-bold mb-4">Invest Once. Own Forever.</h2>
             <p className="text-slate-400 text-lg max-w-2xl mx-auto">
-              Buy once, own forever. No subscriptions. No surprises.
+              No subscriptions. No per-seat fees. No API usage costs. 
+              Buy the hardware once, your agent works for years.
             </p>
           </div>
           
@@ -282,18 +684,21 @@ export default function LandingPage() {
                 key={idx}
                 className={`relative p-6 rounded-2xl border ${
                   tier.popular 
-                    ? "bg-gradient-to-b from-violet-900/20 to-slate-900 border-violet-500/50 glow-violet" 
+                    ? "bg-gradient-to-b from-violet-900/20 to-slate-900 border-violet-500/50 shadow-xl shadow-violet-500/10" 
                     : "bg-slate-900 border-slate-800"
                 }`}
               >
                 {tier.popular && (
-                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-gradient-to-r from-cyan-500 to-violet-500 rounded-full text-xs font-semibold">
-                    Most Popular
+                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-gradient-to-r from-cyan-500 to-violet-500 rounded-full text-xs font-semibold text-white">
+                    Best Value
                   </div>
                 )}
-                <h3 className="text-xl font-semibold mb-2">{tier.name}</h3>
+                <h3 className="text-xl font-semibold mb-1">{tier.name}</h3>
                 <p className="text-slate-400 text-sm mb-4">{tier.description}</p>
-                <div className="text-4xl font-bold mb-6">{tier.price}</div>
+                <div className="flex items-baseline gap-1 mb-6">
+                  <span className="text-4xl font-bold">{tier.price}</span>
+                  <span className="text-slate-500">one-time</span>
+                </div>
                 <ul className="space-y-3 mb-6">
                   {tier.specs.map((spec, sidx) => (
                     <li key={sidx} className="flex items-center gap-2 text-sm text-slate-300">
@@ -306,25 +711,32 @@ export default function LandingPage() {
                   onClick={() => { setPlan(tier.name.toLowerCase()); document.getElementById('waitlist')?.scrollIntoView({ behavior: 'smooth' }); }}
                   className={`w-full py-3 rounded-full font-medium transition-all ${
                     tier.popular
-                      ? "bg-gradient-to-r from-cyan-500 to-violet-500 hover:from-cyan-400 hover:to-violet-400 text-white"
+                      ? "bg-gradient-to-r from-cyan-500 to-violet-500 hover:from-cyan-400 hover:to-violet-400 text-white shadow-lg shadow-violet-500/25"
                       : "bg-slate-800 hover:bg-slate-700 text-white"
                   }`}
                 >
-                  Select {tier.name}
+                  Choose {tier.name}
                 </button>
               </div>
             ))}
           </div>
+          
+          <div className="mt-12 text-center">
+            <p className="text-slate-500 text-sm">
+              All plans include free shipping, 30-day money-back guarantee, and 1-year hardware warranty.
+            </p>
+          </div>
         </div>
       </section>
 
-      {/* Waitlist Section */}
+      {/* Waitlist */}
       <section id="waitlist" className="py-24 relative">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,_var(--tw-gradient-stops))] from-violet-900/20 via-slate-950 to-slate-950" />
         <div className="relative max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-4">Join the Waitlist</h2>
+          <h2 className="text-3xl sm:text-4xl font-bold mb-4">Join the Beta Program</h2>
           <p className="text-slate-400 text-lg mb-8">
-            Be among the first to get your PiAgent. Early adopters receive 25% off.
+            First 100 customers get <span className="text-white font-semibold">25% off</span> and early access to new skills. 
+            Beta units ship March 2025.
           </p>
           
           {!submitted ? (
@@ -333,15 +745,15 @@ export default function LandingPage() {
                 <input
                   type="email"
                   required
-                  placeholder="Enter your email"
+                  placeholder="you@company.com"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="flex-1 px-5 py-4 rounded-full bg-slate-900 border border-slate-800 text-white placeholder-slate-500 focus:outline-none focus:border-cyan-500 transition-colors"
+                  className="flex-1 px-5 py-4 rounded-xl bg-slate-900 border border-slate-800 text-white placeholder-slate-500 focus:outline-none focus:border-cyan-500 transition-colors"
                 />
                 <select
                   value={plan}
                   onChange={(e) => setPlan(e.target.value)}
-                  className="px-5 py-4 rounded-full bg-slate-900 border border-slate-800 text-white focus:outline-none focus:border-cyan-500 transition-colors"
+                  className="px-5 py-4 rounded-xl bg-slate-900 border border-slate-800 text-white focus:outline-none focus:border-cyan-500 transition-colors"
                 >
                   <option value="starter">Starter ($399)</option>
                   <option value="pro">Professional ($599)</option>
@@ -351,12 +763,12 @@ export default function LandingPage() {
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-cyan-500 to-violet-500 hover:from-cyan-400 hover:to-violet-400 disabled:opacity-50 disabled:cursor-not-allowed text-white rounded-full font-semibold text-lg transition-all glow-cyan"
+                className="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-cyan-500 to-violet-500 hover:from-cyan-400 hover:to-violet-400 disabled:opacity-50 disabled:cursor-not-allowed text-white rounded-xl font-semibold text-lg transition-all shadow-xl shadow-violet-500/25"
               >
-                {loading ? "Joining..." : "Join Waitlist — 25% Off"}
+                {loading ? "Joining..." : "Join Beta — Save 25%"}
               </button>
               <p className="text-sm text-slate-500">
-                No spam. Unsubscribe anytime. We respect your privacy (obviously).
+                No spam. Unsubscribe anytime. Your email stays private (obviously).
               </p>
             </form>
           ) : (
@@ -366,10 +778,31 @@ export default function LandingPage() {
               </div>
               <h3 className="text-2xl font-bold mb-2">You're on the list!</h3>
               <p className="text-slate-400">
-                We'll email you when PiAgent is ready. Early adopters get 25% off.
+                We'll email you when beta units are ready. Early adopters get 25% off.
               </p>
             </div>
           )}
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="py-20 bg-slate-900/30">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-2xl font-bold text-center mb-8">Frequently Asked Questions</h2>
+          <div className="space-y-4">
+            {[
+              { q: "Can I really run this without internet?", a: "Yes. PiAgent works completely offline. The LLM runs locally on the Pi 5. You only need internet for initial setup (optional) and if you want email functionality." },
+              { q: "What happens if someone steals the device?", a: "Full disk encryption (LUKS) protects your data. Without the decryption key, the hardware is useless to thieves." },
+              { q: "How is this different from running OpenClaw myself?", a: "We do the hard work: hardware assembly, security hardening, Docker configuration, skill installation, and testing. You get a plug-and-play solution instead of a weekend project." },
+              { q: "Can I add my own skills?", a: "Absolutely. PiAgent is built on OpenClaw, so you can install community skills or build your own. Enterprise plans include custom skill development." },
+              { q: "What LLM does it use?", a: "We ship with optimized local models (Llama 3.2, Qwen 2.5) running via Ollama. You can also configure cloud API endpoints if needed." },
+            ].map((faq, idx) => (
+              <div key={idx} className="p-4 rounded-xl bg-slate-900 border border-slate-800">
+                <h4 className="font-semibold mb-2">{faq.q}</h4>
+                <p className="text-slate-400 text-sm">{faq.a}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -384,12 +817,12 @@ export default function LandingPage() {
               <span className="font-bold text-xl">PiAgent</span>
             </div>
             <p className="text-slate-500 text-sm">
-              © 2025 PiAgent. Built with OpenClaw. Your data belongs to you.
+              © 2025 PiAgent. Built on OpenClaw. Your data belongs to you.
             </p>
             <div className="flex items-center gap-6">
-              <a href="#" className="text-slate-400 hover:text-white transition-colors">Twitter</a>
-              <a href="#" className="text-slate-400 hover:text-white transition-colors">GitHub</a>
-              <a href="#" className="text-slate-400 hover:text-white transition-colors">Discord</a>
+              <a href="#" className="text-slate-400 hover:text-white transition-colors text-sm">Twitter</a>
+              <a href="#" className="text-slate-400 hover:text-white transition-colors text-sm">GitHub</a>
+              <a href="#" className="text-slate-400 hover:text-white transition-colors text-sm">Discord</a>
             </div>
           </div>
         </div>
