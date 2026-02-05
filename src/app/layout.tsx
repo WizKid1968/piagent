@@ -12,13 +12,9 @@ export const metadata: Metadata = {
   description: "Pre-configured Raspberry Pi 5 computers running custom OpenClaw AI agents. Complete privacy, no subscriptions, works offline. Your personal AI assistant that you actually own.",
   keywords: ["AI agent", "Raspberry Pi", "OpenClaw", "local AI", "private AI", "edge computing", "offline AI"],
   icons: {
-    icon: [
-      { url: "/favicon.ico", sizes: "16x16 32x48" },
-      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
-      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
-    ],
+    icon: "/favicon.ico",
     shortcut: "/favicon.ico",
-    apple: { url: "/favicon-32x32.png", sizes: "32x32" },
+    apple: "/apple-touch-icon.png",
   },
   openGraph: {
     title: "PiAgent | Your AI Agent, In a Box",
